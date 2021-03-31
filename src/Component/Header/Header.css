@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0% 10%;
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.nav p{
+    padding: 10px;
+}
