@@ -14,6 +14,7 @@ const Checkout = () => {
         price: null
     });
 
+    
 
     // const {name, price} = newOrder
 
@@ -24,12 +25,21 @@ const Checkout = () => {
                 // setNewOrder(emptyOrder)
                 const recentOrder = data.filter(pd => pd._id === _id);
                 const order = [...recentOrder];
+                // order[0].date = new Date();
+                // order[0]._id = '';
+                // order[0].email = loggedInUser.email;
+                // // console.log(order[0].name);
+                const placeOrder = {
+                    date: new Date(),
+                    email: loggedInUser.email,
+                    imageURL: order[0].imageURL,
+                    name: order[0].name,
+                    price: order[0].price,
+                    weight: order[0].weight
 
-                order[0].email = loggedInUser.email;
-                console.log(order[0].name);
+                }
 
-
-                setNewOrder(order[0])
+                setNewOrder(placeOrder)
                 setEmptyOrder(order[0])
                 // console.log(recentOrder);
 
@@ -63,15 +73,15 @@ const Checkout = () => {
                 <h1>Checkout</h1>
                 <div className='check'>
                     <div className="description">
-                        <p className='name'>Description</p>
-                        <p className='quantity'>Quantity</p>
-                        <p className='price'>Price</p>
+                        <p className='order-name'>Description</p>
+                        <p className='order-quantity'>Quantity</p>
+                        <p className='order-price'>Price</p>
 
                     </div>
                     <div className="description">
-                        <p className='name'>{emptyOrder.name !== null && emptyOrder.name}</p>
-                        <p className='quantity'>1</p>
-                        <p className='price'>$ {emptyOrder.price !== null && emptyOrder.price}</p>
+                        <p className='order-name'>{emptyOrder.name !== null && emptyOrder.name}</p>
+                        <p className='order-quantity'>1</p>
+                        <p className='order-price'>$ {emptyOrder.price !== null && emptyOrder.price}</p>
 
                     </div>
                     <div className="total">

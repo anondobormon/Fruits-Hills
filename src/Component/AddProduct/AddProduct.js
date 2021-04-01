@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import './AddProduct.css'
 
@@ -10,6 +10,7 @@ const AddProduct = () => {
     const [manageProduct, setManageProduct] = useState({
         add: 'add'
     })
+    const [product, setProduct] = useState([])
 
 
 
@@ -35,6 +36,13 @@ const AddProduct = () => {
             })
     };
 
+    useEffect(() => {
+        fetch('https://apple-crumble-43171.herokuapp.com/allProducts')
+            .then(res => res.json())
+            .then(data => setProduct(data))
+    }, [])
+
+
     const handleUploadImage = event => {
         console.log(event.target.files[0])
         const imageData = new FormData();
@@ -55,23 +63,24 @@ const AddProduct = () => {
         console.log('object');
         if (e.target.name === 'manage') {
             console.log('managing');
-            const toggleProduct = {...manageProduct}
+            const toggleProduct = { ...manageProduct }
             toggleProduct.add = 'manage';
             setManageProduct(toggleProduct)
         }
         if (e.target.name === 'edit') {
             console.log('managing');
-            const toggleProduct = {...manageProduct}
+            const toggleProduct = { ...manageProduct }
             toggleProduct.add = 'edit';
             setManageProduct(toggleProduct)
         }
         if (e.target.name === 'add') {
             console.log('managing');
-            const toggleProduct = {...manageProduct}
+            const toggleProduct = { ...manageProduct }
             toggleProduct.add = 'add';
             setManageProduct(toggleProduct)
         }
     }
+
     return (
         <div>
 
@@ -121,9 +130,43 @@ const AddProduct = () => {
                         <input className='submit' type="submit" value='Add Product' />
                     </form>
                 </div>}
+
+
                 {manageProduct.add === 'manage' && <div className="pd">
-                    <p>This is manage</p>
+                    <div className="checkout">
+                        <h2>Manage Your Order's</h2>
+                        <div className='check'>
+                            <div className="description des-nav">
+                                <p>Description</p>
+                                <p>Weight</p>
+                                <p>Quantity</p>
+                                <p>Price</p>
+                                <p>Edit</p>
+                                <p>Remove</p>
+                            </div>
+                            {
+                                product.map(odr => <div key={odr._id} className="orders">
+                                    <p className= 'odr-name'>{odr.name}</p>
+                                    <div className="ord-details">
+                                        <p>{odr.weight}</p>
+                                        <p>1</p>
+                                        <p>$ {odr.price}</p>
+                                        <div>
+                                            <p>Edit</p>
+                                        </div>
+                                        <div className="">
+                                            <p>Remove</p>
+                                        </div>
+                                    </div>
+                                </div>)
+                            }
+
+                        </div>
+                    </div>
                 </div>}
+
+
+
                 {manageProduct.add === 'edit' && <div className="pd">
                     <p>This is edit</p>
                 </div>}

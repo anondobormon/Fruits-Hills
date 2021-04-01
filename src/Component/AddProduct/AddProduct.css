@@ -113,3 +113,18 @@
         margin-bottom: 0;
     }
 }
+
+.orders{
+    display: flex;
+    justify-content: space-between;
+    padding:0 5%;
+    text-align: center;
+}
+.orders p{
+    text-align: center;
+}
+.ord-details{
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}

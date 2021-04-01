@@ -21,18 +21,20 @@
     line-height: .5;
     
 }
-.description .name{
+.description .order-name{
     width: 65%;
     text-align: left;
     
 }
-.description .quantity{
+.description .order-quantity{
     width: 20%;
     
 }
-.description .price{
+.description .order-price{
     width: 15%;
 }
+
+
 .total{
     padding: 0;
     line-height: .5;

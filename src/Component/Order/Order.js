@@ -23,18 +23,21 @@ const Order = () => {
 
     return (
         <div>
-            <h4>This is order</h4>
             <div className="checkout">
+                <h2>Your Order's</h2>
                 <div className='check'>
                     <div className="description des-nav">
                         <p className='name'>Description</p>
+                        <p className='date'>Order Date</p>
+                        <p className='weight'>Weight</p>
                         <p className='quantity'>Quantity</p>
                         <p className='price'>Price</p>
-
                     </div>
                     {
                         allOrders.map(odr => <div className="description">
                             <p className='name'>{odr.name}</p>
+                            <p className='date'>{odr.date}</p>
+                            <p className='weight'>{odr.weight}</p>
                             <p className='quantity'>1</p>
                             <p className='price'>$ {odr.price}</p>
                         </div>)

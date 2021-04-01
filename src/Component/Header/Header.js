@@ -7,10 +7,10 @@ const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
     console.log(loggedInUser);
     return (
-        <div >
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className='headers'>
+            <nav className="navbar navbar-expand-lg navbar-light ">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">FRUITS HILLS</a>
+                    <p className="navbar-brand logo" >FRUIT'S HILLS</p>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@ const Header = () => {
                                 <p><Link className="nav-link active" to="/order">Order</Link></p>
                             </li>
                             <li className="nav-item">
-                                <p><Link className="nav-link active" to="/addProduct">Add Products</Link></p>
+                                <p><Link className="nav-link active" to="/addProduct">Admin</Link></p>
                             </li>
                             <li className="nav-item">
                                 {loggedInUser.isSignIn ? <p className='username'>{loggedInUser.name}</p> : <p><Link className="nav-link active" to="/login">Login</Link></p>}

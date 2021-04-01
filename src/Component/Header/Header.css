@@ -2,11 +2,9 @@
     margin: 0;
     padding: 0;
 }
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0% 10%;
+.headers{
+
+    margin: 0% 7.8%;
 }
 .nav{
     display: flex;
@@ -27,4 +25,8 @@
 .username:hover{
     color: orange;
 
+}
+.container-fluid .logo{
+    font-size: 30px;
+    font-weight: 700;
 }
