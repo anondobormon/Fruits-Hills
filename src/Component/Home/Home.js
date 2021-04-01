@@ -7,7 +7,7 @@ const Home = () => {
     const [product, setProduct] = useState([])
     console.log(product)
     useEffect(() => {
-        fetch('http://localhost:5055/allProducts')
+        fetch('https://apple-crumble-43171.herokuapp.com/allProducts')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])

@@ -20,7 +20,7 @@ const AddProduct = () => {
             price: data.price,
             imageURL: imageURL
         };
-        const url = `http://localhost:5055/addProducts`;
+        const url = `https://apple-crumble-43171.herokuapp.com/addProducts`;
         console.log(eventData)
         fetch(url, {
             method: 'POST',

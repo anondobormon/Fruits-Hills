@@ -18,7 +18,7 @@ const Checkout = () => {
     // const {name, price} = newOrder
 
     useEffect(() => {
-        fetch('http://localhost:5055/allProducts')
+        fetch('https://apple-crumble-43171.herokuapp.com/allProducts')
             .then(res => res.json())
             .then(data => {
                 // setNewOrder(emptyOrder)
@@ -40,7 +40,7 @@ const Checkout = () => {
 
     const handleCheckout = () => {
 
-        const url = `http://localhost:5055/orders`;
+        const url = `https://apple-crumble-43171.herokuapp.com/orders`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
