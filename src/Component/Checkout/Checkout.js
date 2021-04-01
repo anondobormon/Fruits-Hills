@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { UserContext } from '../../App';
+import './Checkout.css';
 
 const Checkout = () => {
-    
+
     const { _id } = useParams();
     const [newOrder, setNewOrder] = useState(null);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -13,9 +14,9 @@ const Checkout = () => {
         price: null
     });
 
-    
+
     // const {name, price} = newOrder
-    
+
     useEffect(() => {
         fetch('http://localhost:5055/allProducts')
             .then(res => res.json())
@@ -23,7 +24,7 @@ const Checkout = () => {
                 // setNewOrder(emptyOrder)
                 const recentOrder = data.filter(pd => pd._id === _id);
                 const order = [...recentOrder];
-                
+
                 order[0].email = loggedInUser.email;
                 console.log(order[0].name);
 
@@ -31,12 +32,12 @@ const Checkout = () => {
                 setNewOrder(order[0])
                 setEmptyOrder(order[0])
                 // console.log(recentOrder);
-                
+
             })
     }, []);
-    
-    
-    
+
+
+
     const handleCheckout = () => {
 
         const url = `http://localhost:5055/orders`;
@@ -48,7 +49,7 @@ const Checkout = () => {
             .then(res => {
                 console.log('sever side response', res)
                 alert('Order has Confirm')
-        })
+            })
 
     }
 
@@ -56,15 +57,29 @@ const Checkout = () => {
 
 
     return (
-        <div>
-            <h1>Checkout</h1>
+        <div className='checkout-section'>
+
             <div className="checkout">
-                <div className="description">
-                    <p>name: {emptyOrder.name !== null && emptyOrder.name}</p>
-                    <p>name: {emptyOrder.price !== null && emptyOrder.price}</p>
-                    
+                <h1>Checkout</h1>
+                <div className='check'>
+                    <div className="description">
+                        <p className='name'>Description</p>
+                        <p className='quantity'>Quantity</p>
+                        <p className='price'>Price</p>
+
+                    </div>
+                    <div className="description">
+                        <p className='name'>{emptyOrder.name !== null && emptyOrder.name}</p>
+                        <p className='quantity'>1</p>
+                        <p className='price'>$ {emptyOrder.price !== null && emptyOrder.price}</p>
+
+                    </div>
+                    <div className="total">
+                        <p className='total-amount'>Total</p>
+                        <p className='dollar'>$ {emptyOrder.price !== null && emptyOrder.price}</p>
+                    </div>
                 </div>
-                <button onClick={handleCheckout}>Checkout</button>
+                <button className='checkout-button' onClick={handleCheckout}>Checkout</button>
             </div>
         </div>
     );

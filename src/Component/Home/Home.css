@@ -1,3 +1,35 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.all-fruits{
+    margin: 0 10%;
+}
+
 img{
     width: 200px;
+}
+.fruits-collection{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5%;
+
+}
+@media(max-width: 900px){
+    .fruits-collection{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5%;
+    
+    } 
+}
+@media(max-width: 700px){
+    .fruits-collection{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 5%;
+    
+    } 
 }

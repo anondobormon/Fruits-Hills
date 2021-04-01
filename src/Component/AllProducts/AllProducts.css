@@ -1,0 +1,19 @@
+.details{
+    display: flex;
+}
+
+.details{
+    margin: 0 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px 10px;
+    padding-bottom: 13px;
+}
+.card{
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card h3{
+    padding-left: 15px;
+}

@@ -11,11 +11,16 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
+
+
+
     return (
-        <div>
-            {
-               product.map(pd => <AllProducts product={pd} key={pd._id}></AllProducts>)
-            }
+        <div className="all-fruits">
+            <div className='fruits-collection'>
+                {
+                    product.map(pd => <AllProducts product={pd} key={pd._id}></AllProducts>)
+                }
+            </div>
         </div>
     );
 };

@@ -1,0 +1,98 @@
+
+
+.add-product{
+
+    display: flex;
+    
+    margin: 0 10%;
+    
+
+}
+
+
+.product-card h2{
+    margin: 30px;
+    font-weight: bold;
+}
+
+.product-info{
+    background: rgb(255, 255, 255);
+    margin: 30px;
+    border-radius: 15px;
+}
+.pd{
+    width: 80%;
+    /* border: 1px solid black; */
+    background: lightsteelblue;
+    height: 100vh;
+}
+
+.sidenav{
+    width: 20%;
+    background: #34495e;
+    /* border: 1px solid red; */
+    text-align: center;
+    margin: 0;
+    color: white;
+    padding-top: 20px;
+
+}
+.manage{
+    margin-top: 30px;
+}
+
+.sidenav button{
+    margin: 0;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    width: 100%;
+    transition: 0.5s ease;
+    color: white;
+}
+.sidenav button:hover{
+    cursor: pointer;
+    background: white;
+    color: black;
+}
+
+.add-product-details{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+}
+.pd-info p{
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+    font-size: 17px;
+    font-weight: 700;
+}
+.pd-info{
+    padding: 10px;
+    
+}
+.pd-info input{
+    padding: 7px;
+    width: 85%;
+    border: 2px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    
+    
+}
+
+.submit{
+    float: right;
+    margin-right: 30px;
+    padding: 5px;
+    margin-bottom: 20px;
+    background: #8e44ad;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: bold;
+    transition: .5s ease;
+}
+.submit:hover{
+    background: #9b59b6;
+}
