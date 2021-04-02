@@ -19,18 +19,25 @@
     border-radius: 10px;
 }
 .google h2{
-    padding: 0px 40px;
+    font-weight: bold;
+    border-bottom: 2px solid grey;
+    padding-bottom: 15px;
 }
 
 .sign-in{
+    font-weight: 700;
     width: 300px;
     padding: 10px;
-    border: none;
-    background: rgb(2, 207, 2);
-    border-radius: 5px;
+    border: 2px solid grey;
+    border-radius: 10px;
     transition: 0.5s ease;
+    
+}
+.sign-in img{
+    width: 20px;
+    margin-right: 20px;
 }
 .sign-in:hover{
-    background: green;
-    color: wheat;
+    background: rgb(224, 224, 224);
+    color: black;
 }

@@ -26,20 +26,20 @@ const Order = () => {
             <div className="checkout">
                 <h2>Your Order's</h2>
                 <div className='check'>
-                    <div className="description des-nav">
-                        <p className='name'>Description</p>
-                        <p className='date'>Order Date</p>
-                        <p className='weight'>Weight</p>
-                        <p className='quantity'>Quantity</p>
-                        <p className='price'>Price</p>
+                    <div className="ord-details description-nav">
+                        <p className='product-details'>Description</p>
+                        <p className='product-details'>Order Date</p>
+                        <p className='product-details'>Weight</p>
+                        <p className='product-details'>Quantity</p>
+                        <p className='product-details'>Price</p>
                     </div>
                     {
-                        allOrders.map(odr => <div className="description">
-                            <p className='name'>{odr.name}</p>
-                            <p className='date'>{odr.date}</p>
-                            <p className='weight'>{odr.weight}</p>
-                            <p className='quantity'>1</p>
-                            <p className='price'>$ {odr.price}</p>
+                        allOrders.map(odr => <div className="ord-details">
+                            <p className='product-details'>{odr.name}</p>
+                            <p className='product-details'>{odr.date}</p>
+                            <p className='product-details'>{odr.weight}</p>
+                            <p className='product-details'>1</p>
+                            <p className='product-details'>$ {odr.price}</p>
                         </div>)
                     }
 

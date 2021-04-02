@@ -1,14 +1,9 @@
 
 
 .add-product{
-
     display: flex;
-    
     margin: 0 10%;
-    
-
 }
-
 
 .product-card h2{
     margin: 30px;
@@ -22,20 +17,17 @@
 }
 .pd{
     width: 80%;
-    /* border: 1px solid black; */
     background: lightsteelblue;
-    height: 100vh;
+    height: 100%;
 }
 
 .sidenav{
     width: 20%;
     background: #34495e;
-    /* border: 1px solid red; */
     text-align: center;
     margin: 0;
     color: white;
     padding-top: 20px;
-
 }
 .manage{
     margin-top: 30px;
@@ -77,8 +69,6 @@
     width: 85%;
     border: 2px solid rgb(204, 204, 204);
     border-radius: 4px;
-    
-    
 }
 
 .submit{
@@ -112,19 +102,34 @@
         width: 100%;
         margin-bottom: 0;
     }
+    .description-nav{
+        font-size: 10px;
+    }
 }
 
-.orders{
-    display: flex;
-    justify-content: space-between;
-    padding:0 5%;
-    text-align: center;
+.icons{
+    margin:0 5%;
+    position: relative;
+
 }
-.orders p{
-    text-align: center;
+.icons img{
+    width: 30px;
+    border-radius: 2px;
+    margin-left: 3px;
+    cursor: pointer;
+    
 }
+
 .ord-details{
-    width: 75%;
     display: flex;
-    justify-content: space-between;
+    text-align: center;
+}
+.product-details{
+    width: 20%;
+}
+.description-nav{
+    border-bottom: 2px solid lightslategrey;
+    margin-bottom: 10px;
+    line-height: .5;
+    font-weight: 700;
 }

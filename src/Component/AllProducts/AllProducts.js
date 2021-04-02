@@ -9,11 +9,9 @@ const AllProducts = (props) => {
     return (
         <div >
             <div className="card">
-
                 <img className='card-img-top' src={pd.imageURL} />
                 <h3>{pd.name}</h3>
                 <div className="details">
-                    
                     <h4>$ {pd.price}</h4>
                     <Link to={'/checkout/' + pd._id}>
                         <button className='btn btn-warning'>Buy Now</button>

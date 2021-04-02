@@ -26,6 +26,9 @@
     color: orange;
 
 }
+.username img{
+    width: 40px;
+}
 .container-fluid .logo{
     font-size: 30px;
     font-weight: 700;

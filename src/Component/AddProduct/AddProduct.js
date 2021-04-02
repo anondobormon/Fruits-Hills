@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
-import './AddProduct.css'
+import './AddProduct.css';
+import Delete from '../../icons/delete.png';
+import Edit from '../../icons/edit.png'
 
 
 const AddProduct = () => {
@@ -11,8 +13,9 @@ const AddProduct = () => {
         add: 'add'
     })
     const [product, setProduct] = useState([])
+    // console.log(product);
 
-
+//send data to server
 
     const onSubmit = data => {
         const eventData = {
@@ -43,6 +46,8 @@ const AddProduct = () => {
     }, [])
 
 
+//Deploy image in imgBB
+
     const handleUploadImage = event => {
         console.log(event.target.files[0])
         const imageData = new FormData();
@@ -58,6 +63,8 @@ const AddProduct = () => {
                 console.log(error);
             });
     }
+
+//Toggle product manage page
 
     const handleManage = (e) => {
         console.log('object');
@@ -81,6 +88,19 @@ const AddProduct = () => {
         }
     }
 
+    //Product delete
+
+    const handleDelete = (id) => {
+        fetch(`https://apple-crumble-43171.herokuapp.com/delete/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(result => {
+                // console.log('Deleted successfully');
+            })
+
+    }
+
     return (
         <div>
 
@@ -90,15 +110,11 @@ const AddProduct = () => {
                 <div className='sidenav'>
                     <h4>FRUITS HILLS</h4>
                     <div className="manage">
-                        {/* <p onClick={handleManage} name='manage'>Manage product</p>
-                        <p onClick={handleManage} name='add'>Add product</p>
-                        <p onClick={handleManage} name='edit'>Edit product</p> */}
                         <button onClick={handleManage} name='manage'>Manage product</button>
                         <button onClick={handleManage} name='add'>Add product</button>
                         <button onClick={handleManage} name='edit'>Edit product</button>
                     </div>
                 </div>
-
 
                 {manageProduct.add === 'add' && <div className="pd">
                     <form className='product-card' onSubmit={handleSubmit(onSubmit)}>
@@ -112,17 +128,17 @@ const AddProduct = () => {
                                 </div>
 
                                 <div className="pd-info">
-                                    <p>Product Name</p>
+                                    <p>Weight</p>
                                     <input name="weight" placeholder='Enter Weight KG' ref={register} required />
                                 </div>
 
                                 <div className="pd-info">
-                                    <p>Product Name</p>
+                                    <p>Price</p>
                                     <input name="price" placeholder='Enter Price' ref={register} required />
                                 </div>
 
                                 <div className="pd-info">
-                                    <p>Product Name</p>
+                                    <p>Product Image</p>
                                     <input type="file" onChange={handleUploadImage} name="image" id="" />
                                 </div>
                             </div>
@@ -131,31 +147,30 @@ const AddProduct = () => {
                     </form>
                 </div>}
 
-
                 {manageProduct.add === 'manage' && <div className="pd">
                     <div className="checkout">
                         <h2>Manage Your Order's</h2>
                         <div className='check'>
-                            <div className="description des-nav">
-                                <p>Description</p>
-                                <p>Weight</p>
-                                <p>Quantity</p>
-                                <p>Price</p>
-                                <p>Edit</p>
-                                <p>Remove</p>
+                            <div className="ord-details description-nav">
+                                <p className="product-details">Description</p>
+                                <p className="product-details">Weight</p>
+                                <p className="product-details">Quantity</p>
+                                <p className="product-details">Price</p>
+                                <p className="product-details">Remove</p>
                             </div>
                             {
                                 product.map(odr => <div key={odr._id} className="orders">
-                                    <p className= 'odr-name'>{odr.name}</p>
+
                                     <div className="ord-details">
-                                        <p>{odr.weight}</p>
-                                        <p>1</p>
-                                        <p>$ {odr.price}</p>
-                                        <div>
-                                            <p>Edit</p>
-                                        </div>
-                                        <div className="">
-                                            <p>Remove</p>
+
+                                        <p className='product-details'>{odr.name}</p>
+                                        <p className="product-details">{odr.weight}</p>
+                                        <p className="product-details">1</p>
+                                        <p className="product-details">$ {odr.price}</p>
+
+                                        <div className="icons">
+                                            <img src={Edit} alt="" />
+                                            <img onClick={() => handleDelete(odr._id)} src={Delete} alt="" />
                                         </div>
                                     </div>
                                 </div>)
@@ -165,10 +180,8 @@ const AddProduct = () => {
                     </div>
                 </div>}
 
-
-
                 {manageProduct.add === 'edit' && <div className="pd">
-                    <p>This is edit</p>
+                    <p>This is edit section</p>
                 </div>}
 
             </div>

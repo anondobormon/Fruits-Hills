@@ -14,21 +14,14 @@ const Checkout = () => {
         price: null
     });
 
-    
-
-    // const {name, price} = newOrder
+    //load data from database
 
     useEffect(() => {
         fetch('https://apple-crumble-43171.herokuapp.com/allProducts')
             .then(res => res.json())
             .then(data => {
-                // setNewOrder(emptyOrder)
                 const recentOrder = data.filter(pd => pd._id === _id);
                 const order = [...recentOrder];
-                // order[0].date = new Date();
-                // order[0]._id = '';
-                // order[0].email = loggedInUser.email;
-                // // console.log(order[0].name);
                 const placeOrder = {
                     date: new Date(),
                     email: loggedInUser.email,
@@ -36,20 +29,15 @@ const Checkout = () => {
                     name: order[0].name,
                     price: order[0].price,
                     weight: order[0].weight
-
                 }
-
                 setNewOrder(placeOrder)
                 setEmptyOrder(order[0])
-                // console.log(recentOrder);
-
             })
     }, []);
 
-
+//Product Checkout
 
     const handleCheckout = () => {
-
         const url = `https://apple-crumble-43171.herokuapp.com/orders`;
         fetch(url, {
             method: 'POST',
@@ -60,15 +48,10 @@ const Checkout = () => {
                 console.log('sever side response', res)
                 alert('Order has Confirm')
             })
-
     }
 
-
-
-
     return (
-        <div className='checkout-section'>
-
+        <div className='checkout-section'>          
             <div className="checkout">
                 <h1>Checkout</h1>
                 <div className='check'>
