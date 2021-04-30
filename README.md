@@ -1,8 +1,10 @@
-## FRUITS HILLS
+Project Name: FRUITS HILLS
 
-## live link : https://fruits-hills.web.app
+Prohect Categorice:  E-commerce related
 
-## Project Introduction:
+live link : https://fruits-hills.web.app
+
+**Project Introduction:**
 
 1. Have an home page
 2. Use react router
@@ -16,3 +18,10 @@
 10. Site almost Responsive
 11. Use spinner in home page
 12. use env etc.
+
+---User---
+
+1 Users can place order
+2 Use Google Login system useing firebase
+3 Admin manage all product and orders
+4 User see all orders list 
