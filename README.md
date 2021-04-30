@@ -22,6 +22,9 @@ live link : https://fruits-hills.web.app
 ---User---
 
 1 Users can place order
+
 2 Use Google Login system useing firebase
+
 3 Admin manage all product and orders
+
 4 User see all orders list 
